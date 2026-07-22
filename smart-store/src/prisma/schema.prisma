@@ -20,11 +20,12 @@ enum Role {
 
 model Product {
   id    Int    @id @default(autoincrement())
+  mark String
   name  String
   price Int
   stock Int
+  img String
   description String
-  
 }
 
 model User {

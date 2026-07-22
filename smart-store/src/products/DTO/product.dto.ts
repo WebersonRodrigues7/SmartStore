@@ -6,6 +6,10 @@ export class ProductDTO {
   name!: string;
 
   @IsNotEmpty()
+  @IsString()
+  mark!: string
+
+  @IsNotEmpty()
   @IsNumber()
   price!: number;
 
@@ -16,4 +20,8 @@ export class ProductDTO {
   @IsNotEmpty()
   @IsNumber()
   stock!: number;
+
+  @IsNotEmpty()
+  @IsString()
+  img!: string
 }

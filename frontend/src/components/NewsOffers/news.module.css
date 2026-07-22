@@ -1,0 +1,46 @@
+.mainNewsOffer {
+  height: 100%;
+}
+
+.mainNewsOffer :global(.swiper) {
+  height: 100%;
+
+  align-items: center;
+  width: clamp(350px, 40vw, 600px);
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+  display: flex;
+}
+
+.mainNewsOffer :global(.swiper-pagination-bullet) {
+  background-color: green;
+}
+
+.slide1,
+.slide2,
+.slide3 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.slide1 {
+  background-image: url("/iphone14oferta.png");
+}
+
+.slide2 {
+  background-image: url("/fretegratis.png");
+}
+
+.slide3 {
+  background-image: url("/ofertascupom.png");
+}
+
+.mainNewsOffer :global(.swiper-button-next),
+.mainNewsOffer :global(.swiper-button-prev) {
+  color: green;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 5px;
+}

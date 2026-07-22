@@ -1,0 +1,33 @@
+.mainHero {
+  background-color: #767977;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainHero .imperdiveis {
+  text-align: center;
+  color: #3bb670;
+  display: flex;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper {
+  width: 1000px;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 630px) {
+  .swiper {
+    width: 300px;
+  }
+}

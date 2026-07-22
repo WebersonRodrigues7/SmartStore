@@ -1,0 +1,145 @@
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0F1115;
+  border-bottom: 1px solid #2E8B57;
+  margin-bottom: 50px;
+}
+
+.topSecOffer {
+  width: 100%;
+  height: 50px;
+  background-color: #2E8B57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topSecOffer :global(.swiper-slide) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipper {
+  height: 100%;
+  background-color: #2E8B57;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: black;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(10px, 1vw, 15px);
+}
+
+.midSect {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  padding-inline: 40px;
+  flex: 1;
+  position:relative;
+  align-items: center;
+}
+
+.midSect h1 {
+  color: #2E8B57;
+}
+
+.midSect img:hover {
+  cursor: pointer;
+}
+
+.header ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  list-style-type: none;
+}
+
+.header ul li {
+  color: #3FAE6F;
+  padding: 0px 10px;
+}
+
+.header ul li:hover {
+  cursor: pointer;
+  color: #4CC97E;
+}
+
+.header ul button {
+  background-color: #0F1115;
+  color: #3FAE6F;
+  font-weight: bold;
+  border: 1px solid #3FAE6F;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.header ul button:hover {
+  cursor: pointer;
+  background-color: #1A1D24;
+}
+
+#profile {
+  border: 1px solid #3FAE6F;
+  padding: 5px;
+  border-radius: 25px;
+}
+#cart {
+  color: #3FAE6F;
+}
+#cart:hover {
+  cursor: pointer;
+  color: #4CC97E;
+}
+
+.menuIcon {
+  display: none;
+}
+
+.midSect .ulMobile {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  
+  .menuIcon {
+  display: block;
+}
+
+.midSect {
+  display: flex;
+  justify-content: space-between;
+}
+
+.midSect .ulPc {
+  display: none;
+}
+
+.midSect .ulMobile {
+  display: flex;
+  position: absolute;
+  top: 65;
+  background-color:#0F1115;
+  padding: 10px;
+  z-index: 999;
+  right: 0;
+  border-radius: 10px;
+  flex-direction: column;
+}
+
+}

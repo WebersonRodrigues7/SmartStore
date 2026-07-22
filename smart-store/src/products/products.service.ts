@@ -21,9 +21,11 @@ export class ProductsService {
       const newProduct = await this.prisma.product.create({
         data: {
           name: body.name,
-          price: body.price,
+          mark: body.mark,
+          price: Number(body.price),
           description: body.description,
-          stock: body.stock,
+          stock: Number(body.stock),
+          img: body.img,
         },
       });
 
@@ -37,6 +39,18 @@ export class ProductsService {
     const products = await this.prisma.product.findMany();
 
     return products;
+  }
+
+  async getApple() {
+    const findApple = await this.prisma.product.findMany({
+      where: { mark: 'Apple' },
+    });
+
+    if (!findApple) {
+      throw new NotFoundException();
+    }
+
+    return findApple;
   }
 
   async deleteProduct(userId: number, id: number) {
@@ -66,9 +80,10 @@ export class ProductsService {
         where: { id: Number(id) },
         data: {
           name: body.name,
+          mark: body.mark,
           price: body.price,
           description: body.description,
-          stock: body.stock
+          stock: body.stock,
         },
       });
 

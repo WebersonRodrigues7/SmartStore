@@ -1,32 +1,21 @@
-'use client'
-
-import { useEffect, useState } from "react"
-type PropsProducts = {
-    name: string
-    price: number
-    stock: number
-    description: string
-}
+import NewsOffer from "@/components/NewsOffers/newsoffer";
+import styles from "./dashboard.module.css"
+import Header from "@/components/Header/header";
+import HeroDashboard from "@/components/HeroDashboard/herodashboard";
 export default function Dashboard() {
-    const [data, setData] = useState<PropsProducts[]>([])
-
-    useEffect(() => {
-        fetch("api/products")
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-            })
-    }, [])
 
     return (
-        <>
-            {data.map((item, i) => (
-                <div key={i}>
-                    <h1>{item.name}</h1>
+        <main className={styles.main}>
+            <Header />
+            <section className={styles.secNewsOffer}>
+                <NewsOffer />
+            </section>
+            <section className={styles.heroDashboard}>
+                <HeroDashboard />
+            </section>
+            <section className={styles.s}>
 
-                </div>
-            ))}
-
-        </>
+            </section>
+        </main>
     )
 }
