@@ -26,6 +26,7 @@ model Product {
   stock Int
   img String
   description String
+  cartItem CartItem[]
 }
 
 model User {
@@ -33,4 +34,24 @@ model User {
   email String @unique
   password String
   role Role @default(CLIENT)
+  cart Cart[]
 }
+
+model Cart {
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  cartItem CartItem[]
+  total Int
+  
+}
+
+model CartItem {
+  id Int @id @default(autoincrement())
+  cart Cart @relation(fields: [cart_id], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+  cart_id Int
+  productId Int
+  quantity Int
+}
+ 

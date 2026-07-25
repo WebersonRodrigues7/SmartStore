@@ -6,6 +6,8 @@ import { LoginModule } from './login/login.module';
 import { ProductsModule } from './products/products.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { CartModule } from './cart/cart.module';
+
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { APP_GUARD } from '@nestjs/core';
     UsersModule,
     LoginModule,
     ProductsModule,
+    CartModule,
+    
   ],
   controllers: [AppController],
   providers: [
