@@ -83,10 +83,11 @@ export class CartService {
           stock: findProduct.stock - quantity,
         },
       });
+      
 
       return newCartItem;
     } catch (err) {
-      console.log(err);
+      throw new BadRequestException();
     }
   }
 
