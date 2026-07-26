@@ -172,14 +172,19 @@ export class CartService {
         where: { cart_id: findCart.id },
       });
 
-      for (let i; i < findItems.length; i++) {
+      for (let i = 0; i < findItems.length; i++) {
         const product = await this.prisma.product.findUnique({
           where: { id: Number(findItems[i].productId) },
         });
-        await this.prisma.product.updateMany({
-          where: { id: product?.id },
+
+        if (!product) {
+          throw new NotFoundException();
+        }
+
+        await this.prisma.product.update({
+          where: { id: findItems[i].productId },
           data: {
-            stock: Number(product?.stock) + Number(findItems[i].quantity),
+            stock: product.stock + findItems[i].quantity,
           },
         });
       }
@@ -188,7 +193,7 @@ export class CartService {
         where: { cart_id: Number(findCart.id) },
       });
 
-      await this.prisma.cart.delete({
+      return await this.prisma.cart.delete({
         where: { id: findCart.id },
       });
     } catch (err) {
