@@ -83,7 +83,6 @@ export class CartService {
           stock: findProduct.stock - quantity,
         },
       });
-      
 
       return newCartItem;
     } catch (err) {
@@ -113,8 +112,16 @@ export class CartService {
 
   async DeleteCartItem(cartItemId: number) {
     try {
-      const findCart = await this.prisma.cartItem.findFirst({
+      const findCartItem = await this.prisma.cartItem.findFirst({
         where: { id: cartItemId },
+      });
+
+      if (!findCartItem) {
+        throw new NotFoundException();
+      }
+
+      const findCart = await this.prisma.cart.findFirst({
+        where: { id: findCartItem?.cart_id },
       });
 
       if (!findCart) {
@@ -126,17 +133,24 @@ export class CartService {
       });
 
       const newStockProduct = await this.prisma.product.findFirst({
-        where: { id: findCart.productId },
+        where: { id: findCartItem.productId },
       });
 
       if (!newStockProduct) {
         throw new NotFoundException();
       }
 
+      await this.prisma.cart.update({
+        where: { id: findCartItem.cart_id },
+        data: {
+          total: findCart?.total - newStockProduct.price,
+        },
+      });
+
       await this.prisma.product.update({
         where: { id: newStockProduct?.id },
         data: {
-          stock: findCart.quantity + newStockProduct.stock,
+          stock: findCartItem?.quantity + newStockProduct.stock,
         },
       });
     } catch (err) {
@@ -163,7 +177,7 @@ export class CartService {
           where: { id: Number(findItems[i].productId) },
         });
         await this.prisma.product.updateMany({
-          where: { id: Number(findItems[i].productId) },
+          where: { id: product?.id },
           data: {
             stock: Number(product?.stock) + Number(findItems[i].quantity),
           },
