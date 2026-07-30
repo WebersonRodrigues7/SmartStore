@@ -13,6 +13,12 @@ datasource db {
   provider = "sqlite"
 }
 
+enum STATUS {
+  PENDING
+  CANCELLED
+  APPROVED
+}
+
 enum Role {
   CLIENT
   ADMIN
@@ -26,6 +32,7 @@ model Product {
   stock Int
   img String
   description String
+  orderItem OrderItem[]
   cartItem CartItem[]
 }
 
@@ -35,6 +42,26 @@ model User {
   password String
   role Role @default(CLIENT)
   cart Cart[]
+  orders Orders[]
+}
+
+model Orders {
+  id Int @id @default(autoincrement())
+  status STATUS @default(PENDING)
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  total Int
+  orderItem OrderItem[]
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+  product Product @relation(fields: [productId], references: [id])
+  order Orders @relation(fields: [orderId], references: [id])
+  orderId Int
+  productId Int
+  quantity Int
+
 }
 
 model Cart {

@@ -7,6 +7,9 @@ import { ProductsModule } from './products/products.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { CartModule } from './cart/cart.module';
+import { MercadopagoModule } from './mercadopago/mercadopago.module';
+import { OrdersModule } from './orders/orders.module';
+import { TesteModule } from './teste/teste.module';
 
 
 @Module({
@@ -21,6 +24,9 @@ import { CartModule } from './cart/cart.module';
     LoginModule,
     ProductsModule,
     CartModule,
+    MercadopagoModule,
+    OrdersModule,
+    TesteModule,
     
   ],
   controllers: [AppController],
