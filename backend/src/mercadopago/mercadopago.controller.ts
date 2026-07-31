@@ -15,6 +15,8 @@ export class MercadopagoController {
     );
   }
 
-
-  
+  @Post('/v1/webhook')
+  async WebHook(@Req() req) {
+    console.log(req.body);
+  }
 }
