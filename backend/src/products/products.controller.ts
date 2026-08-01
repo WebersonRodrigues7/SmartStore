@@ -1,4 +1,4 @@
-    import {
+import {
   BadRequestException,
   Body,
   Controller,
@@ -36,18 +36,7 @@ export class ProductsController {
     return getallProducts;
   }
 
- // @Post('/')
-  //@UseInterceptors(
-  //   FileInterceptor('image', {
-  //     storage: diskStorage({
-  //       destination: './uploads/products',
-  //       filename: (req, file, cb) => {
-  //         const fileName = `${Date.now()}-${file.originalname}`;
-  //         cb(null, fileName);
-  //       },
-  //     }),
-  //   }),
-  // )
+  @Post('/')
   @UseGuards(AuthGuard('jwt'))
   async createNewProduct(
     @Req() req,
@@ -58,8 +47,8 @@ export class ProductsController {
     //   throw new BadRequestException('Imagem obrigatória');
     // }
     return await this.productsService.createProduct(req.user.id, {
-      ...body
-     // img: `uploads/products/${file.filename}`,
+      ...body,
+      // img: `uploads/products/${file.filename}`,
     });
   }
 

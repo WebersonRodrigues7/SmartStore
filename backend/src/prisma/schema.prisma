@@ -30,7 +30,6 @@ model Product {
   name  String
   price Int
   stock Int
-  img String
   description String
   orderItem OrderItem[]
   cartItem CartItem[]

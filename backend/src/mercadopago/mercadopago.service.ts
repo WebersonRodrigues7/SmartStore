@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { MercadoPagoConfig, Preference, Payment } from 'mercadopago';
+import { STATUS } from '../generated/prisma/enums';
 
 interface PropsItems {
   id: string;
@@ -71,5 +72,26 @@ export class MercadopagoService {
         auto_return: 'approved',
       },
     });
+  }
+
+  async consultPayment(paymentId: number) {
+    const mercadoPagoConfig = new MercadoPagoConfig({
+      accessToken: String(process.env.ACCESSTOKEN),
+    });
+    const paymentClient = new Payment(mercadoPagoConfig);
+
+    const payment = await paymentClient.get({
+      id: paymentId,
+    });
+
+    await this.prisma.orders.update({
+      where: { id: Number(payment.external_reference) },
+      data: {
+        status:
+          payment.status === 'approved' ? STATUS.APPROVED : STATUS.CANCELLED,
+      },
+    });
+
+    return payment;
   }
 }

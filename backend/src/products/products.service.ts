@@ -25,7 +25,6 @@ export class ProductsService {
           price: Number(body.price),
           description: body.description,
           stock: Number(body.stock),
-          img: body.img,
         },
       });
 

@@ -21,7 +21,4 @@ export class ProductDTO {
   @IsNumber()
   stock!: number;
 
-  @IsNotEmpty()
-  @IsString()
-  img!: string
 }
