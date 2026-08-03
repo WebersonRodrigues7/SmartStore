@@ -19,6 +19,6 @@ export class MercadopagoController {
   async WebHook(@Req() req) {
     const paymentCheck = await this.mercadopagoService.consultPayment(req.body.data.id)
 
-    return paymentCheck
+    return paymentCheck;
   }
 }
