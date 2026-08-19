@@ -32,6 +32,7 @@ export default function CardsItem({ cardsImg, cardsAlt, cardsName, cardsPrice, c
                                 <h3>R${cardsPrice}</h3>
                             </div>
                             <h5>{cardsDescription}</h5>
+                            <button onClick={() => {}}>Comprar</button>
                             
                         </div>
                     </div>

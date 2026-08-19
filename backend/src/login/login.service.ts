@@ -5,13 +5,11 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 @Injectable()
-
 export class LoginService {
   constructor(private prisma: PrismaService) {}
- 
+
   async Login(body: UserDTO) {
     try {
- 
       const findUser = await this.prisma.user.findFirst({
         where: { email: body.email },
       });
@@ -34,7 +32,7 @@ export class LoginService {
           },
         );
 
-        return token;
+        return { token: token };
       } else {
         throw new NotFoundException();
       }
@@ -42,6 +40,4 @@ export class LoginService {
       throw new NotFoundException('Usuário e/ou senha errado(s)!');
     }
   }
-
- 
 }
