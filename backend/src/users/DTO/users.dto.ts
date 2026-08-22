@@ -1,6 +1,9 @@
 import { IsEmail, IsNotEmpty, IsStrongPassword } from "class-validator";
 
 export class UserDTO {
+    @IsEmail()
+    @IsNotEmpty()
+    name!: string
 
     @IsNotEmpty()
     @IsEmail()

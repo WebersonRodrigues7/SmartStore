@@ -24,6 +24,7 @@ export class UsersService {
       const hashPass = await bcrypt.hash(body.password, 10);
       const newUser = await this.prisma.user.create({
         data: {
+          nome: body.name,
           email: body.email,
           password: hashPass,
         },
@@ -47,6 +48,7 @@ export class UsersService {
       const updtUser = await this.prisma.user.update({
         where: { id: Number(findUser.id) },
         data: {
+          name: body.name,
           email: body.email,
           password: hashPass,
         },
