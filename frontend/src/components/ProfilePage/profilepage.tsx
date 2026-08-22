@@ -5,7 +5,7 @@ import styles from "./profilepage.module.css";
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
-  console.log(session?.user?.email)
+  console.log(session?.user?.name)
   console.log(status);
   return (
     <main className={styles.main}>
