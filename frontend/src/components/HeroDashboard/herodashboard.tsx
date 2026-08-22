@@ -34,7 +34,12 @@ export default function HeroDashboard() {
 
   return (
     <main className={styles.mainHero}>
-      <h1 className={styles.imperdiveis}>Imperdiveis <span><AiTwotoneThunderbolt size={25} /></span></h1>
+      <h1 className={styles.imperdiveis}>
+        Imperdiveis{" "}
+        <span>
+          <AiTwotoneThunderbolt size={25} />
+        </span>
+      </h1>
 
       <div className={styles.divSwiper}>
         <Swiper

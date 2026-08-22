@@ -5,6 +5,10 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import z from "zod";
+import styles from "./login.module.css";
+import { FcGoogle } from "react-icons/fc";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const schema = z.object({
   email: z.email(),
@@ -22,6 +26,16 @@ export default function LoginPage() {
     resolver: zodResolver(schema),
   });
 
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    gsap.from(sectionRef.current, {
+      y: -100,
+      filter: "blur(5px)",
+      duration: 1,
+      opacity: 0,
+    });
+  }, []);
+
   const router = useRouter();
 
   async function onSubmitForm(data: LoginSchema) {
@@ -30,7 +44,7 @@ export default function LoginPage() {
       redirect: false,
     });
 
-    console.log(signI)
+    console.log(signI);
 
     if (!signI) {
       throw new Error("Nao logou");
@@ -44,16 +58,50 @@ export default function LoginPage() {
     router.push("/dashboard");
   }
 
+  async function signInGoogle() {
+    await signIn("google", {
+      callbackUrl: "/dashboard",
+    });
+  }
+
   return (
-    <main>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit(onSubmitForm)}>
-        <label htmlFor="email">Email</label>
-        <input {...register("email")} type="text" />
-        <label htmlFor="password">Senha</label>
-        <input {...register("password")} type="password" />
-        <button>Entrar</button>
-      </form>
+    <main className={styles.main}>
+      <section ref={sectionRef}>
+        <h2>Entrar</h2>
+
+        <form onSubmit={handleSubmit(onSubmitForm)}>
+          <div className={styles.divInput}>
+            <input {...register("email")} type="text" placeholder="Email" />
+          </div>
+          <div className={styles.divInput}>
+            <input
+              {...register("password")}
+              type="password"
+              placeholder="Senha"
+            />
+          </div>
+          <button>ENTRAR</button>
+          <div className={styles.checkDiv}>
+            <input className={styles.check} type="checkbox" />
+            <p>Continuar logado</p>
+          </div>
+        </form>
+
+        <div className={styles.divTop}>
+          <h3>
+            OU <span></span>
+          </h3>
+          <button onClick={signInGoogle}>
+            <FcGoogle size={25} />
+            Google
+          </button>
+        </div>
+        <footer className={styles.footer}>
+          <p>
+            Novo por aqui? <span>Cadastrar</span>
+          </p>
+        </footer>
+      </section>
     </main>
   );
 }

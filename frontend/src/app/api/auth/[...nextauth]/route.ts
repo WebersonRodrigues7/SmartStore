@@ -1,8 +1,17 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+
+interface ISesson {
+  tokenBack?: string;
+}
 const secret = process.env.AUTH_SECRET;
 const handler = NextAuth({
   providers: [
+    GoogleProvider({
+      clientId: String(process.env.GOOGLE_CLIENT_ID),
+      clientSecret: String(process.env.GOOGLE_CLIENT_SECRET),
+    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -33,6 +42,7 @@ const handler = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.tokenBack = user.token;
+        token.name = user.name;
       }
 
       return token;
@@ -40,7 +50,9 @@ const handler = NextAuth({
 
     async session({ session, token }) {
       session.tokenBack = token.tokenBack;
+      session.tokenUser = token.name;
 
+      
       return session;
     },
   },

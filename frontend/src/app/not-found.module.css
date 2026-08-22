@@ -1,0 +1,130 @@
+.main {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main .cabo {
+  background-color: rgb(51, 51, 51);
+  width: 3px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+}
+
+.divLampada {
+  background-color: rgb(77, 76, 76);
+  width: 150px;
+  height: 100px;
+
+  position: absolute;
+  border-radius: 50 50 0 0;
+  top: 70;
+}
+
+.lampada {
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 170;
+  border-radius: 0 0 50 50;
+  background-color: white;
+}
+
+.luz {
+  background-image: linear-gradient(45deg,rgba(255, 255, 255, 0.747), black, black);
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 235;
+  rotate: 135deg;
+}
+
+.main .h1404 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(80px, 12vw, 200px);
+  line-height: 1;
+}
+
+.main .notfound {
+  position: relative;
+  z-index: 1;
+
+  margin: 10px 0 25px;
+
+  color: white;
+  text-align: center;
+
+  font-size: clamp(20px, 3vw, 36px);
+}
+
+.main button {
+  position: relative;
+  z-index: 1;
+
+  background-color: white;
+  border: none;
+
+  padding: clamp(10px, 1.2vw, 15px) clamp(18px, 2vw, 28px);
+
+  font-size: clamp(14px, 1.2vw, 20px);
+
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main img {
+    width: clamp(260px, 75vw, 400px);
+    top: clamp(-180px, -25vw, -100px);
+  }
+
+  .divLampada::after {
+    width: clamp(220px, 65vw, 320px);
+    height: clamp(220px, 65vw, 320px);
+  }
+
+  .main .h1404 {
+    font-size: clamp(80px, 28vw, 140px);
+  }
+
+  .main .notfound {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+}
+
+@media (max-width: 430px) {
+  .main img {
+    width: 300px;
+    top: -130px;
+  }
+
+  .divLampada::after {
+    width: 260px;
+    height: 260px;
+    top: 44%;
+  }
+
+  .main .h1404 {
+    font-size: 90px;
+  }
+}

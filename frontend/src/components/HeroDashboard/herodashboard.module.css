@@ -4,9 +4,21 @@
   justify-content: center;
   gap: 30px;
   flex-direction: column;
+  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
+.divSwiper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  min-width: 0;
+}
 
+.swiper {
+  width: 100%;
+  min-width: 0;
+}
 .mainHero .imperdiveis {
   text-align: center;
   color: #3bb670;
@@ -14,10 +26,6 @@
   padding-top: 30px;
   align-items: center;
   justify-content: center;
-}
-
-.swiper {
-  width: 1000px;
 }
 
 .slide {

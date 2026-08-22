@@ -32,7 +32,14 @@ export class LoginService {
           },
         );
 
-        return { token: token };
+        return {
+          token: token,
+          user: {
+            id: findUser.id,
+            name: findUser.name,
+            email: findUser.email,
+          },
+        };
       } else {
         throw new NotFoundException();
       }

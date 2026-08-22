@@ -1,0 +1,196 @@
+.main {
+  background: url("/fundologin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+}
+
+.main section {
+  margin-right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  width: 400px;
+  height: 450px;
+  position: relative;
+  gap: 10px;
+  border-radius: 8px;
+}
+
+.main section h2 {
+  text-indent: 40px;
+  text-align: left;
+  font-weight: 200;
+}
+
+.main section .divTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.divTop h3 span::after {
+  content: "";
+  position: absolute;
+  left: -150;
+  top: 10;
+
+  background-color: rgb(194, 193, 193);
+  width: 130px;
+  height: 1px;
+}
+
+.divTop h3 span::before {
+  content: "";
+  position: absolute;
+  left: 45;
+  top: 10;
+  background-color: rgb(194, 193, 193);
+  width: 130px;
+  height: 1px;
+}
+
+.divTop h3 {
+  position: relative;
+  font-weight: 200;
+  font-size: 14px;
+  color: rgb(194, 193, 193);
+}
+
+.divTop button {
+  padding: 5px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+}
+
+.divTop button:hover {
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+}
+
+.main section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 10%;
+  height: 40%;
+}
+
+.main section form .divInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.main section form .check {
+  width: 15px;
+  accent-color: rgb(62, 173, 112);
+  background-color: white;
+}
+
+.checkDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  align-items: center;
+}
+
+.checkDiv p {
+  font-size: 13px;
+}
+
+.main section form div input {
+  width: 90%;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.055) inset;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.315);
+}
+
+.main section form div input:focus {
+  outline: none;
+}
+
+.main section form button {
+  width: 90%;
+  padding: 10px;
+  position: relative;
+  z-index: 999;
+  overflow: hidden;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+
+  transition: 0.5s ease;
+  background-color: white;
+}
+
+.main section form button:hover {
+  cursor: pointer;
+  color: white;
+}
+.main section form button::after {
+  content: "";
+  height: 0px;
+
+  top: 50%;
+  left: 50%;
+  width: 0px;
+  position: absolute;
+  z-index: -1;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
+
+  background-color: rgb(62, 173, 112);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main section form button:hover::after {
+  width: 400px;
+
+  z-index: -1;
+  height: 400px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer p {
+  font-size: 14px;
+  font-weight: 200;
+  color: rgb(194, 193, 193);
+}
+
+.footer span {
+  color: rgb(62, 173, 112);
+  font-weight: 600;
+}
+.footer span:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .main {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+  }
+}
