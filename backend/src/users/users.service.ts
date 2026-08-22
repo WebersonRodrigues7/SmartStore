@@ -31,8 +31,27 @@ export class UsersService {
       });
       return newUser;
     } catch (err) {
-      throw new BadRequestException();
+      throw new BadRequestException(err);
     }
+
+  }
+
+   async createAdminUser(body: UserDTO) {
+    try {
+      const hashPass = await bcrypt.hash(body.password, 10);
+      const newUser = await this.prisma.user.create({
+        data: {
+          name: body.name,
+          email: body.email,
+          password: hashPass,
+          role: 'ADMIN'
+        },
+      });
+      return newUser;
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
+    
   }
 
   async updateUser(userid: number, body: UserDTO) {

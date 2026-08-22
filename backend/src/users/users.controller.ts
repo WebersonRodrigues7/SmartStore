@@ -11,6 +11,7 @@ import { UsersService } from './users.service';
 import { UserDTO } from './DTO/users.dto';
 import { AuthGuard } from '@nestjs/passport';
 
+
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -20,6 +21,13 @@ export class UsersController {
     const newUser = await this.usersService.createUser(body);
 
     return newUser;
+  }
+
+  @Post('/admin')
+  async createAdmin(@Body() body: UserDTO){
+    const newuser = await this.usersService.createAdminUser(body)
+
+    return newuser
   }
 
   @UseGuards(AuthGuard('jwt'))
