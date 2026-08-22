@@ -36,7 +36,6 @@ export class LoginService {
           token: token,
           user: {
             id: findUser.id,
-            name: findUser.name,
             email: findUser.email,
           },
         };
