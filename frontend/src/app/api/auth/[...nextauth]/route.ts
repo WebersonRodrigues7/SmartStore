@@ -33,6 +33,7 @@ const handler = NextAuth({
         return {
           id: String(data.user.id),
           email: data.user.email,
+          name: data.user.name,
           token: data.token,
         };
       },
@@ -47,6 +48,7 @@ const handler = NextAuth({
       if (user) {
         token.tokenBack = user.token;
         token.email = user.email;
+        token.name = user.name;
       }
 
       return token;
@@ -54,6 +56,7 @@ const handler = NextAuth({
 
     async session({ session, token }) {
       session.tokenBack = token.tokenBack;
+      session.user.name = token.name;
       session.user.email = token.email;
 
       return session;

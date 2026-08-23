@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  font-family: "Arial";
+}
+
+.main .aside {
+  background-color: red;
+  width: 300px;
+  height: 100dvh;
+}
+
+.main .heroProf {
+  display: flex;
+}
+.main .rightSide {
+  display: flex;
+  padding: 50px 80px;
+  flex-direction: column;
+}
+
+.rightSide .userInfo {
+  display: flex;
+  gap: 10px;
+}
+
+.userInfo img {
+  width: 70px;
+  height: 70px;
+}
+
+
+
+.userInfo div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

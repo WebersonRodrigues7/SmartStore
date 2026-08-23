@@ -6,12 +6,12 @@ import styles from "./header.module.css";
 import "swiper/css";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { RiCoupon2Fill } from "react-icons/ri";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 export default function Header() {
   const [open, setOpen] = useState(false);
-    const router = useRouter()
+  const router = useRouter();
   return (
     <header className={styles.header}>
       <section className={styles.topSecOffer}>
@@ -48,9 +48,9 @@ export default function Header() {
         />
         {open && (
           <ul className={styles.ulMobile}>
-            <li>HOME</li>
+            <li onClick={() => router.push("/dashboard")}>HOME</li>
             <li>PRODUTOS</li>
-            <li>
+            <li onClick={() => router.push("/profile")}>
               <FaRegUser id={styles.profile} size={40} />
             </li>
             <button>LOGOUT</button>
@@ -58,9 +58,9 @@ export default function Header() {
           </ul>
         )}
         <ul className={styles.ulPc}>
-          <li>HOME</li>
+          <li onClick={() => router.push("/dashboard")}>HOME</li>
           <li>PRODUTOS</li>
-          <li onClick={() => router.push('/profile')}>
+          <li onClick={() => router.push("/profile")}>
             <FaRegUser id={styles.profile} size={40} />
           </li>
           <button>LOGOUT</button>

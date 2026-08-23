@@ -4,15 +4,14 @@
   flex-direction: column;
   height: 100px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #0F1115;
-  border-bottom: 1px solid #2E8B57;
-  margin-bottom: 50px;
+  background-color: #0f1115;
+  border-bottom: 1px solid #2e8b57;
 }
 
 .topSecOffer {
   width: 100%;
   height: 50px;
-  background-color: #2E8B57;
+  background-color: #2e8b57;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +25,7 @@
 
 .swipper {
   height: 100%;
-  background-color: #2E8B57;
+  background-color: #2e8b57;
   width: 50%;
   display: flex;
   align-items: center;
@@ -50,12 +49,12 @@
   height: 100%;
   padding-inline: 40px;
   flex: 1;
-  position:relative;
+  position: relative;
   align-items: center;
 }
 
 .midSect h1 {
-  color: #2E8B57;
+  color: #2e8b57;
 }
 
 .midSect img:hover {
@@ -70,40 +69,40 @@
 }
 
 .header ul li {
-  color: #3FAE6F;
+  color: #3fae6f;
   padding: 0px 10px;
 }
 
 .header ul li:hover {
   cursor: pointer;
-  color: #4CC97E;
+  color: #4cc97e;
 }
 
 .header ul button {
-  background-color: #0F1115;
-  color: #3FAE6F;
+  background-color: #0f1115;
+  color: #3fae6f;
   font-weight: bold;
-  border: 1px solid #3FAE6F;
+  border: 1px solid #3fae6f;
   padding: 10px;
   border-radius: 15px;
 }
 
 .header ul button:hover {
   cursor: pointer;
-  background-color: #1A1D24;
+  background-color: #1a1d24;
 }
 
 #profile {
-  border: 1px solid #3FAE6F;
+  border: 1px solid #3fae6f;
   padding: 5px;
   border-radius: 25px;
 }
 #cart {
-  color: #3FAE6F;
+  color: #3fae6f;
 }
 #cart:hover {
   cursor: pointer;
-  color: #4CC97E;
+  color: #4cc97e;
 }
 
 .menuIcon {
@@ -114,32 +113,29 @@
   display: none;
 }
 
-
 @media (max-width: 768px) {
-  
   .menuIcon {
-  display: block;
-}
+    display: block;
+  }
 
-.midSect {
-  display: flex;
-  justify-content: space-between;
-}
+  .midSect {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.midSect .ulPc {
-  display: none;
-}
+  .midSect .ulPc {
+    display: none;
+  }
 
-.midSect .ulMobile {
-  display: flex;
-  position: absolute;
-  top: 65;
-  background-color:#0F1115;
-  padding: 10px;
-  z-index: 999;
-  right: 0;
-  border-radius: 10px;
-  flex-direction: column;
-}
-
+  .midSect .ulMobile {
+    display: flex;
+    position: absolute;
+    top: 65;
+    background-color: #0f1115;
+    padding: 10px;
+    z-index: 999;
+    right: 0;
+    border-radius: 10px;
+    flex-direction: column;
+  }
 }
