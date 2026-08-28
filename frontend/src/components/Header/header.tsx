@@ -49,7 +49,7 @@ export default function Header() {
         {open && (
           <ul className={styles.ulMobile}>
             <li onClick={() => router.push("/dashboard")}>HOME</li>
-            <li>PRODUTOS</li>
+            <li onClick={() => router.push("/products")}>PRODUTOS</li>
             <li onClick={() => router.push("/profile")}>
               <FaRegUser id={styles.profile} size={40} />
             </li>
@@ -59,7 +59,7 @@ export default function Header() {
         )}
         <ul className={styles.ulPc}>
           <li onClick={() => router.push("/dashboard")}>HOME</li>
-          <li>PRODUTOS</li>
+          <li onClick={() => router.push("/products")}>PRODUTOS</li>
           <li onClick={() => router.push("/profile")}>
             <FaRegUser id={styles.profile} size={40} />
           </li>
