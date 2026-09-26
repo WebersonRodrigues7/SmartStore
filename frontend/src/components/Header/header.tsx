@@ -9,6 +9,7 @@ import { RiCoupon2Fill } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
+import { styleText } from "util";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -28,24 +29,18 @@ export default function Header() {
           }}
         >
           <SwiperSlide color="green" className={styles.slide}>
-            THSMART PARA 10% OFF <RiCoupon2Fill size={20} />
+            PIKISHOP PARA 5% OFF <RiCoupon2Fill size={20} />
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             Frete grátis para todo o Brasil <LiaShippingFastSolid size={20} />
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
-            5% OFF na primeira compra!
+            15% OFF na primeira compra!
           </SwiperSlide>
         </Swiper>
       </section>
       <section className={styles.midSect}>
-        <h1>TH SMART</h1>
-        <IoMenu
-          color="#2E8B57"
-          size={50}
-          className={styles.menuIcon}
-          onClick={() => setOpen(!open)}
-        />
+        <img src="pikishopVector.svg" alt="Pikishop Title" />
         {open && (
           <ul className={styles.ulMobile}>
             <li onClick={() => router.push("/dashboard")}>HOME</li>
@@ -54,14 +49,14 @@ export default function Header() {
               <FaRegUser id={styles.profile} size={40} />
             </li>
             <button>LOGOUT</button>
-            <FaShoppingCart id={styles.cart} size={35} />
+            <FaShoppingCart id={styles.cart} size={25} />
           </ul>
         )}
         <ul className={styles.ulPc}>
           <li onClick={() => router.push("/dashboard")}>HOME</li>
           <li onClick={() => router.push("/products")}>PRODUTOS</li>
           <li onClick={() => router.push("/profile")}>
-            <FaRegUser id={styles.profile} size={40} />
+            <FaRegUser id={styles.profile} size={37.5} />
           </li>
           <button>LOGOUT</button>
           <FaShoppingCart id={styles.cart} size={35} />
